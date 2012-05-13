@@ -1,0 +1,28 @@
+
+This project is developed for Crash course on Web Programming conducted by Yarl IT Hub Comminity.
+
+This is an exapmle project for assingment #3 - Scenario #2.
+
+If you want to contribut this project you can download this project.
+
+You can curry out the following tasks
+
+Click the "Fork" button.
+
+git clone git@github.com:smayoorans/yschool-mini-mayooran-jsf.git
+
+Then go to the "yschool-mini-mayooran-jsf" folder using command line.
+
+If you want to run this project type the following commands in your command prompt
+
+mvn compile
+
+mvn jetty:run
+
+
+
+
+Then go to the browser and type below address
+
+
+http://localhost:8080/yschool-mini-mayooran-jsf/
