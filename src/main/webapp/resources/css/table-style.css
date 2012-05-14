@@ -1,0 +1,25 @@
+.user-table{   
+    border: 1px solid black;
+    font-family: Georgia,'Times New Roman',times,serif;
+    background-color: #9999ff;
+    font-size: 14px;
+}
+ 
+.user-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+ 
+.user-table-odd-row{
+	text-align:center;
+	border-top:1px solid #BBBBBB;
+        background-color: #ccccff;
+}
+ 
+.user-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}

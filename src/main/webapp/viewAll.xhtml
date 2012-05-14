@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+    <h:head>
+        <title>View All</title>
+        <h:outputStylesheet library="css" name="table-style.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <center>        
+            <h:dataTable value="#{myManagedBean.students}" var="student"
+                         styleClass="user-table" headerClass="user-table-header"
+                         rowClasses="user-table-odd-row,user-table-even-row">
+                <h:column>                    
+                    <f:facet name="header">Admission No</f:facet>     
+                    <h:outputText value="#{student.admissionno}"></h:outputText>                                        
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">First Name :</f:facet>
+                    <h:commandLink value="#{student.firstname}" action="searchresponse">
+                        <f:setPropertyActionListener target="#{myManagedBean.searchedStudent}" value="#{student}"/>
+                    </h:commandLink> 
+                </h:column>
+
+                 <h:column>
+                    <f:facet name="header">Last Name:</f:facet>
+                    <h:outputText value="#{student.lastname}"></h:outputText>    		
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Grade</f:facet>
+                    <h:outputText value="#{student.grade}">                        
+                    </h:outputText>    		                                            
+                </h:column>
+                
+                 <h:column>
+                    <f:facet name="header">Address</f:facet>
+                    <h:outputText value="#{student.address}"></h:outputText>    		
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Date of birth</f:facet>
+                    <h:outputText value="#{student.dateOfBirth}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+                    </h:outputText>    		                                            
+                </h:column>
+                
+                
+            </h:dataTable>
+         </center> 
+        </h:form>
+       
+    </h:body>
+</html>
+

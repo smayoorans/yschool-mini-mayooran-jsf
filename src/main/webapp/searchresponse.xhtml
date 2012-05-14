@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Response Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            
+            <p:panel header="" style="text-align: center">
+                <center>
+                <h:panelGrid columns="2">
+            
+            <h:outputText value="Admision No:"/>
+            <p:inputText value="#{myManagedBean.searchedStudent.admissionno}" />           
+             
+            <h:outputText value="First Name:"/>
+            <p:inputText value="#{myManagedBean.searchedStudent.firstname}"  style="color:blue"/>
+             
+            <h:outputText value="Last Name:"/>
+            <p:inputText value="#{myManagedBean.searchedStudent.lastname}"  style="color:blue"/> 
+            
+            <h:outputText value="Address:"/>
+            <p:inputText value="#{myManagedBean.searchedStudent.address}"  style="color:blue"/>
+             
+            <h:outputText value="Date of Birth:"/>
+            <p:inputText value="#{myManagedBean.searchedStudent.dateOfBirth}"  style="color:blue">
+                <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+            </p:inputText>
+            
+            <h:outputText value="Grade:"/>
+            <p:inputText value="#{myManagedBean.searchedStudent.grade}" disabled="true" style="color:blue" /> 
+            
+          </h:panelGrid>
+            <h:commandButton value="Update" actionListener="#{myManagedBean.update}">
+                
+            </h:commandButton>
+            
+          </center>
+                
+          </p:panel> 
+        </h:form>        
+    </h:body>
+</html>
+

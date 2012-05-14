@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core" >
+    <h:head>
+        <title>ySchool Project</title>
+    </h:head>
+    <h:body style="background-color: lightskyblue"  >
+       
+       <h:form >  
+           <p:panel  id="panel"   header="Crash Course for ySchool Project!"  menuTitle="Yat"  style="margin-bottom:10px;">                    
+               <center>          
+             <h3> <marquee behavior="alternate" bgcolor="yellow">Yarl IT Hub</marquee></h3>
+            <h3>Student Registration</h3>
+                </center>
+             <h:panelGrid columns="1">  
+            
+                <p:button value="Add Student"  outcome="insertstudent">
+                    <f:param name="addstudent" />  
+                </p:button> 
+                
+                <p:button value="Search Student" outcome="searchstudent">
+                    <f:param name="search"  />  
+                </p:button> 
+                
+                <p:button value="Add Marks" outcome="addmarks" >
+                    <f:param name="addmarks" />  
+                </p:button>
+                
+                <p:button value="Add Many Student" outcome="addmanystudent">
+                    <f:param name="addmany"  />  
+                </p:button> 
+                
+                <p:button value="View All Student" outcome="viewAll">
+                    <f:param name="viewall"  /> 
+                </p:button> 
+             
+             </h:panelGrid> 
+        </p:panel> 
+           
+        
+           
+        </h:form>            
+      
+    </h:body>
+</html>
+

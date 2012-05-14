@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Insert Student</title>
+         <h:outputStylesheet library="css" name="table-style.css" />
+    </h:head>
+    <body>
+       <center>
+      
+    <p:panel id="panel0" header="Yarl IT Hub" style="margin-bottom:15px;">
+    
+        
+        <h:panelGrid columns="2"> 
+        
+     
+    
+         <p:panel id="panel1" header="Student Registration" style="margin-bottom:10px;"> 
+            <h:outputLabel value="Please enter the student's details below:" /> 
+            <h:form> 
+            <h:panelGrid columns="3">  
+            
+                 
+            <h:outputLabel for="admissionno" value="Admission Number: *"  /> 
+            <p:inputText id="admissionno"   value="#{myManagedBean.insertStudent.admissionno}" required="true" requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>
+            <p:message for="admissionno"   display="color:red" ></p:message>
+             
+            <h:outputLabel for="firstname" value="First Name: *" /> 
+            <p:inputText id="firstname"   value="#{myManagedBean.insertStudent.firstname}" required="true" requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>
+            <p:message for="firstname"  ></p:message>
+   
+            <h:outputLabel for="lastname" value="Last Name: *" /> 
+            <p:inputText id="lastname"   value="#{myManagedBean.insertStudent.lastname}" required="true"  requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>   
+            <p:message for="lastname"  ></p:message>     
+            
+            <h:outputLabel for="address" value="Address: *" /> 
+            <p:inputText id="address"   value="#{myManagedBean.insertStudent.address}" required="true" requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>
+            <p:message for="address"  ></p:message> 
+            
+            <h:outputLabel for="dob" value="Date of Birth: *" />
+            <p:calendar  id="dob" value="#{myManagedBean.insertStudent.dateOfBirth}" required="true" requiredMessage="Validation Error: Value is required!">
+                <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+            </p:calendar>
+             <p:message for="dob" ></p:message>  
+             
+            <h:commandButton value="Create"  actionListener="#{myManagedBean.prepareCreate}"  />                     
+            <h:commandButton value="Reset" /> 
+           <h:commandButton value="Cancel" />
+       
+        </h:panelGrid>
+        </h:form> 
+        </p:panel>         
+        
+     
+           
+         
+         <p:panel id="panel2" header="Registered Student " style="margin-bottom:10px;"> 
+          
+          <h:form> 
+            <h:panelGrid columns="3">  
+     
+            <h:outputLabel for="admissionno" value="Admission Number: *"  /> 
+            <p:inputText id="admissionno"   value="#{myManagedBean.selectedStudent.admissionno}" required="true" requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>
+            <p:message for="admissionno"   display="color:red" ></p:message>
+             
+            <h:outputLabel for="firstname" value="First Name: *" /> 
+            <p:inputText id="firstname"   value="#{myManagedBean.selectedStudent.firstname}" required="true" requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>
+            <p:message for="firstname"  ></p:message>
+   
+            <h:outputLabel for="lastname" value="Last Name: *" /> 
+            <p:inputText id="lastname"   value="#{myManagedBean.selectedStudent.lastname}" required="true"  requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>   
+            <p:message for="lastname"  ></p:message>     
+            
+            <h:outputLabel for="address" value="Address: *" /> 
+            <p:inputText id="address"   value="#{myManagedBean.selectedStudent.address}" required="true" requiredMessage="Validation Error: Value is required!">  
+            </p:inputText>
+            <p:message for="address"  ></p:message> 
+            
+            <h:outputLabel for="dob" value="Date of Birth: *" />
+            <p:calendar  id="dob" value="#{myManagedBean.selectedStudent.dateOfBirth}" required="true" requiredMessage="Validation Error: Value is required!">
+                <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+            </p:calendar>
+             <p:message for="dob" ></p:message>
+        
+            </h:panelGrid> 
+             </h:form> 
+             </p:panel>        
+       
+    </h:panelGrid> 
+     </p:panel>  
+        
+     
+    <p:panel>  
+         <h:form>
+            <h:panelGrid columns="1">        
+                 <h:dataTable value="#{myManagedBean.students}" var="student" styleClass="user-table" headerClass="user-table-header"
+                         rowClasses="user-table-odd-row,user-table-even-row">
+                <h:column>                    
+                    <f:facet name="header1">Admission No</f:facet>     
+                    <h:outputText value="#{student.admissionno}"></h:outputText>                                        
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header2">First Name :</f:facet>
+                    <h:commandLink value="#{student.firstname}" action="searchresponse">
+                        <f:setPropertyActionListener target="#{myManagedBean.searchedStudent}" value="#{student}"/>
+                    </h:commandLink> 
+                </h:column>
+
+                 <h:column>
+                    <f:facet name="header3">Last Name:</f:facet>
+                    <h:outputText value="#{student.lastname}"></h:outputText>    		
+                </h:column>
+                 <h:column>
+                    <f:facet name="header4">Address</f:facet>
+                    <h:outputText value="#{student.address}"></h:outputText>    		
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header5">Date of birth</f:facet>
+                    <h:outputText value="#{student.dateOfBirth}">
+                        <f:convertDateTime pattern="dd/MM/YYYY"></f:convertDateTime>
+                    </h:outputText>    		                                            
+                </h:column>
+                
+                
+            </h:dataTable>
+               
+       
+       </h:panelGrid> 
+             </h:form>
+    </p:panel>   
+       </center>
+        
+    </body>
+</html>
+
